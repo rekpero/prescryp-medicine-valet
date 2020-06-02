@@ -1,21 +1,19 @@
 package com.prescryp.deliveryapp.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.prescryp.deliveryapp.Model.OrderItem;
 import com.prescryp.deliveryapp.R;
 
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 
 public class OrderItemListAdapter extends RecyclerView.Adapter<OrderItemListAdapter.ViewHolder> {
 

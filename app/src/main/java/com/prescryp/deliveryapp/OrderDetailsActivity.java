@@ -9,19 +9,18 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -30,12 +29,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.chaos.view.PinView;
-import com.google.android.gms.location.LocationRequest;
 import com.prescryp.deliveryapp.Adapter.PickupListAdapter;
 import com.prescryp.deliveryapp.Misc.RunTimePermission;
 import com.prescryp.deliveryapp.Model.OrderItem;
 import com.prescryp.deliveryapp.Model.PickupItem;
-import com.prescryp.deliveryapp.SessionManager.UserSessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,7 +68,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -271,7 +268,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
     }
 
     private void deliverOrderToPatientFCM(final String mobile_number, final String order_number) {
-        final String title = "Your Order #" + String.valueOf(order_number) + " has been Delivered";
+        final String title = "Your Order #" + order_number + " has been Delivered";
         final String message = "Your order has been delivered. Don't forget to rate us for our services.";
         String url = "http://prescryp.com/prescriptionUpload/sendNotification.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -339,7 +336,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
     }
 
     private void deliverOrderForChemistFCM(final String sellerMobileNumber, final String order_number) {
-        final String title = "The Order #" + String.valueOf(order_number) + " from your store has been Delivered";
+        final String title = "The Order #" + order_number + " from your store has been Delivered";
         final String message = "The order has been delivered. Checkout your earning from this order.";
         String url = "http://prescryp.com/prescriptionUpload/sendNotification.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

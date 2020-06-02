@@ -1,21 +1,20 @@
 package com.prescryp.deliveryapp;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputLayout;
 import com.prescryp.deliveryapp.SessionManager.UserSessionManager;
 
 import org.json.JSONException;
@@ -38,7 +37,7 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -50,17 +49,17 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 
 
-        profileImg = (CircleImageView) findViewById(R.id.profile_pic);
-        name_text = (TextInputLayout) findViewById(R.id.name_input);
-        phone_number_text = (TextInputLayout) findViewById(R.id.phone_no_input);
-        email_text = (TextInputLayout) findViewById(R.id.email_input);
-        updateCard = (CardView) findViewById(R.id.saveProfileUpdate);
+        profileImg = findViewById(R.id.profile_pic);
+        name_text = findViewById(R.id.name_input);
+        phone_number_text = findViewById(R.id.phone_no_input);
+        email_text = findViewById(R.id.email_input);
+        updateCard = findViewById(R.id.saveProfileUpdate);
 
         UserSessionManager userSessionManager = new UserSessionManager(getApplicationContext());
         final HashMap<String, String> user = userSessionManager.getUserDetails();
         final String session_mob = user.get(UserSessionManager.KEY_MOB);
         String session_name = user.get(UserSessionManager.KEY_NAME);
-        
+
         getEmailID(session_mob, session_name);
 
         updateCard.setOnClickListener(new View.OnClickListener() {

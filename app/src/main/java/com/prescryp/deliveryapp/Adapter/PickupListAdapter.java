@@ -2,35 +2,26 @@ package com.prescryp.deliveryapp.Adapter;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.prescryp.deliveryapp.Misc.RunTimePermission;
-import com.prescryp.deliveryapp.Model.OrderReceivedItem;
 import com.prescryp.deliveryapp.Model.PickupItem;
-import com.prescryp.deliveryapp.OrderDetailsActivity;
 import com.prescryp.deliveryapp.R;
 
-import java.text.DateFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class PickupListAdapter extends RecyclerView.Adapter<PickupListAdapter.ViewHolder>{
 

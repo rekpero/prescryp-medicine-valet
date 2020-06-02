@@ -8,10 +8,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.util.Log;
 
+import androidx.core.content.ContextCompat;
 
 import com.prescryp.deliveryapp.R;
 
@@ -173,12 +173,9 @@ public class RunTimePermission extends Activity
                 dialog.dismiss();
             }
         });
-        if (!((Activity) activity).isFinishing() && msg.length() > 0)
-        {
+        if (!activity.isFinishing() && msg.length() > 0) {
             adb.show();
-        }
-        else
-        {
+        } else {
             Log.v("log_tag", "either activity finish or message length is 0");
         }
     }
@@ -190,14 +187,7 @@ public class RunTimePermission extends Activity
         {
             if (arrayListPermission.get(i).permission.equals(permissions))
             {
-                if (grantResults == 0)
-                {
-                    arrayListPermission.get(i).isAccept = true;
-                }
-                else
-                {
-                    arrayListPermission.get(i).isAccept = false;
-                }
+                arrayListPermission.get(i).isAccept = grantResults == 0;
                 break;
             }
         }
